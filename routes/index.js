@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     // var clientIp = requestIp.getClientIp(req);
     // var clientIp = get_ip(req);
     // var clientIp = req.connection.remoteAddress;
-    var clientIp = req.headers['x-forwarded-for'] ||
+    var clientIp = req.headers['HTTP_CF_CONNECTING_IP'] || req.headers['x-forwarded-for'] ||
      req.connection.remoteAddress ||
      req.socket.remoteAddress ||
      req.connection.socket.remoteAddress;
